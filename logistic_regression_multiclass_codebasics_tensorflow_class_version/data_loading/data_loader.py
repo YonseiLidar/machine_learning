@@ -4,9 +4,7 @@ from copy import deepcopy
 import numpy as np
 
 
-def data_digits(test_size=0.2, seed=0):
-    
-    np.random.seed(seed)
+def data_digits(test_size=0.2):
     
     digits = load_digits()
     
