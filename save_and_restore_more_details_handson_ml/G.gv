@@ -1,0 +1,88 @@
+digraph G {
+	graph [color=white fillcolor=white fontcolor="#414141" style=rounded]
+	node [color="#aaaaaa" fillcolor=white fontcolor="#414141" penwidth=2 style=filled]
+	edge [arrowsize=1.2 color="#aaaaaa" fontcolor="#414141" penwidth=2.5]
+	x [label=x]
+	y [label=y]
+	hidden1 [label=hidden1]
+	dnn [label=dnn]
+	hidden2 [label=hidden2]
+	hidden3 [label=hidden3]
+	hidden4 [label=hidden4]
+	hidden5 [label=hidden5]
+	outputs [label=outputs]
+	loss [label=loss]
+	gradients [label=gradients]
+	clip_by_value [label=clip_by_value]
+	clip_by_value_1 [label=clip_by_value_1]
+	clip_by_value_2 [label=clip_by_value_2]
+	clip_by_value_3 [label=clip_by_value_3]
+	clip_by_value_4 [label=clip_by_value_4]
+	clip_by_value_5 [label=clip_by_value_5]
+	clip_by_value_6 [label=clip_by_value_6]
+	clip_by_value_7 [label=clip_by_value_7]
+	clip_by_value_8 [label=clip_by_value_8]
+	clip_by_value_9 [label=clip_by_value_9]
+	clip_by_value_10 [label=clip_by_value_10]
+	clip_by_value_11 [label=clip_by_value_11]
+	GradientDescent [label=GradientDescent]
+	eval [label=eval]
+	init [label=init]
+	save [label=save]
+	hidden2 -> dnn
+	hidden1 -> dnn
+	hidden3 -> dnn
+	hidden4 -> dnn
+	outputs -> dnn
+	x -> dnn [label="?×784"]
+	hidden5 -> dnn
+	dnn -> loss
+	y -> loss [label=""]
+	loss -> gradients
+	hidden2 -> gradients
+	hidden1 -> gradients
+	hidden3 -> gradients
+	hidden4 -> gradients
+	outputs -> gradients
+	dnn -> gradients
+	x -> gradients [label="?×784"]
+	hidden5 -> gradients
+	gradients -> clip_by_value
+	gradients -> clip_by_value_1
+	gradients -> clip_by_value_2
+	gradients -> clip_by_value_3
+	gradients -> clip_by_value_4
+	gradients -> clip_by_value_5
+	gradients -> clip_by_value_6
+	gradients -> clip_by_value_7
+	gradients -> clip_by_value_8
+	gradients -> clip_by_value_9
+	gradients -> clip_by_value_10
+	gradients -> clip_by_value_11
+	clip_by_value_11 -> GradientDescent [label=10]
+	clip_by_value_6 -> GradientDescent [label="50×50"]
+	clip_by_value -> GradientDescent [label="784×300"]
+	clip_by_value_7 -> GradientDescent [label=50]
+	clip_by_value_8 -> GradientDescent [label="50×50"]
+	clip_by_value_1 -> GradientDescent [label=300]
+	hidden2 -> GradientDescent
+	clip_by_value_3 -> GradientDescent [label=50]
+	hidden1 -> GradientDescent
+	clip_by_value_5 -> GradientDescent [label=50]
+	clip_by_value_9 -> GradientDescent [label=50]
+	hidden3 -> GradientDescent
+	clip_by_value_4 -> GradientDescent [label="50×50"]
+	hidden4 -> GradientDescent
+	outputs -> GradientDescent
+	clip_by_value_10 -> GradientDescent [label="50×10"]
+	hidden5 -> GradientDescent
+	clip_by_value_2 -> GradientDescent [label="300×50"]
+	dnn -> eval
+	y -> eval [label=""]
+	hidden2 -> save
+	hidden1 -> save
+	hidden3 -> save
+	hidden4 -> save
+	outputs -> save
+	hidden5 -> save
+}
